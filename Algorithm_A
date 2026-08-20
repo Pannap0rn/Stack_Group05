@@ -1,0 +1,32 @@
+ALGORITHM A: Event Stack
+
+BEGIN
+    IF eventStack is full THEN
+        OUTPUT "Case is already CLOSED"
+        RETURN
+    END IF
+
+    position ← SIZE(eventStack)
+
+    IF position = 0 THEN
+        expectedAction ← CALL_RECEIVED
+    ELSE IF position = 1 THEN
+        expectedAction ← TEAM_ASSIGNED
+    ELSE IF position = 2 THEN
+        expectedAction ← VEHICLE_DISPATCHED
+    ELSE IF position = 3 THEN
+        expectedAction ← ARRIVED_AT_SCENE
+    ELSE
+        expectedAction ← CASE_CLOSED
+    END IF
+
+    IF action ≠ expectedAction THEN
+        OUTPUT "Invalid Action"
+        RETURN
+    END IF
+
+    PUSH action INTO eventStack
+    CLEAR redoStack
+
+    OUTPUT "Action Added Successfully"
+END
