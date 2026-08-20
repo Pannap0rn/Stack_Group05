@@ -4,7 +4,7 @@
 
 กำหนดให้ระบบ Emergency Workflow มีลำดับ Action ที่ถูกต้องดังนี้
 
-CALL_RECEIVED → TEAM_ASSIGNED → VEHICLE_DISPATCHED → ARRIVED_AT_SCENE → CASE_CLOSED
+CALL_RECEIVED -> TEAM_ASSIGNED -> VEHICLE_DISPATCHED -> ARRIVED_AT_SCENE -> CASE_CLOSED
 
 หลังจากเพิ่ม Action ตามลำดับ จะได้สถานะ Event Stack จากบนลงล่าง (Top to Bottom) ดังนี้
 
