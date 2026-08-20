@@ -1,0 +1,7 @@
+public enum Action {
+    CALL_RECEIVED,
+    TEAM_ASSIGNED,
+    VEHICLE_DISPATCHED,
+    ARRIVED_AT_SCENE,
+    CASE_CLOSED
+}
