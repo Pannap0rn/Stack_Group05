@@ -1,0 +1,22 @@
+Algorithm A: Event Stack
+
+ใช้ Invariant ว่าจำนวนและลำดับของ Action ใน Event Stack ต้องสอดคล้องกับลำดับของ EmergencyWorkflow
+
+ก่อนเริ่ม: eventStack ว่าง และระบบอยู่ที่ NEW
+ระหว่างทำงาน: ทุกครั้งที่เพิ่ม Action ระบบจะตรวจสอบว่า Action ตรงกับตำแหน่งถัดไปของ Workflow ก่อน Push เข้า Stack
+หลังทำงาน: Event Stack จะมี Action ตามลำดับที่ถูกต้อง และ State จะสอดคล้องกับจำนวน Action ที่ทำสำเร็จ
+
+ดังนั้น Algorithm A จะไม่สามารถเพิ่ม Action ที่ผิดลำดับเข้าสู่ Event Stack ได้
+
+Algorithm B: Event Stack + State Machine
+
+ใช้อินวาเรียนต์ว่า currentState ต้องสอดคล้องกับ Action ล่าสุดใน Event Stack
+
+ก่อนเริ่ม: currentState = NEW และ eventStack ว่าง
+ระหว่างทำงาน: ระบบตรวจสอบ currentState และ action ผ่าน Transition Table ก่อนเปลี่ยน State
+หลังทำงาน: หากมี Transition ที่ถูกต้อง Action จะถูกเพิ่มเข้า Event Stack และ currentState จะเปลี่ยนเป็น State ถัดไป หากไม่มี Transition ระบบจะปฏิเสธ Action
+
+ดังนั้น Algorithm B จะรักษาความถูกต้องของ State และป้องกันการเปลี่ยน State ผิดลำดับ
+
+สรุป
+ทั้ง Algorithm A และ Algorithm B สามารถรักษาลำดับของ Emergency Workflow ได้ถูกต้อง และไม่อนุญาตให้ Action ที่ผิดลำดับถูกเพิ่มเข้าสู่ระบบ เครดิตฟรี
