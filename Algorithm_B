@@ -1,0 +1,21 @@
+ALGORITHM B: Event Stack + State Machine
+
+BEGIN
+    IF currentState = CLOSED THEN
+        OUTPUT "Case is already CLOSED"
+        RETURN
+    END IF
+
+    nextState ← Transition(currentState, action)
+
+    IF nextState = NULL THEN
+        OUTPUT "Invalid Action"
+        RETURN
+    END IF
+
+    PUSH action INTO eventStack
+    currentState ← nextState
+    CLEAR redoStack
+
+    OUTPUT "Action Added Successfully"
+END
